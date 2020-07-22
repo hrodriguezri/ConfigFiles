@@ -1,10 +1,9 @@
-" ------ 
-" Author: Harbey Rodriguez Rincon
-" Maintainers: Harbey Rodriguez Rincon
-" Date: Jul 17, 2020
+" Author: Maria Ortiz
+" Maintainers: Harbey Rodríguez Rincón
+" Date: Jun 19, 2020
 " License: 
 " ------ 
-
+"
 " Vi Improved 
 set nocompatible
 
@@ -28,23 +27,20 @@ let g:rainbow_active = 1
 syntax enable
 set background=dark
 colorscheme solarized8_high
-
-" sets line numbers
+ " sets line numbers
 set relativenumber number
 highlight LineNr ctermfg=grey
-
-" sets tabs to 4 spaces
+ " sets tabs to 4 spaces
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-" sets parenthetical highlighting to just bold
+ " sets parenthetical highlighting to just bold
 hi MatchParen cterm=bold ctermbg=Black ctermfg=none
-
-" sets noexpandtab for Makefiles
+ " sets noexpandtab for Makefiles
 if &ft == 'make'
     setlocal noexpandtab
-    setlocal tabstop=4
-endif
+        setlocal tabstop=4
+        endif
 
 " color columns beyond 80 characters
 set colorcolumn=80
 highlight ColorColumn ctermbg=red guibg=red
+        
