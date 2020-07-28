@@ -1,37 +1,42 @@
 " Author: Maria Ortiz
 " Maintainers: Harbey Rodríguez Rincón
 " Date: Jun 19, 2020
-" License: 
+" License:
 " ------ 
 "
-" Vi Improved 
+" Vi Improved
 set nocompatible
 
-" backspace 
-set backspace=indent,eol,start 
+" backspace
+set backspace=indent,eol,start
 set clipboard=unnamed
 set laststatus=2
 set noshowmode
+set spelllang=en                                                " English spellcheck
+set ruler                                                       " Show where you are
+set scrolloff=3                                                 " Show context above/below cursorline
 
 " Plugins
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin(expand('~/.config/nvim/plugged'))               " Pluggins wil be downloaded under the specificied directory
 
-Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-buftabline' 
-Plug 'luochen1990/rainbow'
-Plug 'lifepillar/vim-solarized8'
+Plug 'itchyny/lightline.vim'                                    " Color mode
+Plug 'ap/vim-buftabline'                                        " Buffers as tabs
+Plug 'luochen1990/rainbow'                                      " Show different levels of parenthesis in different colors
+Plug 'lifepillar/vim-solarized8'                                " Optimized Solarized colorschemes
 call plug#end()
 
-"Plugins setup
+"layout{{{
 let g:rainbow_active = 1
 syntax enable
 set background=dark
 colorscheme solarized8_high
- " sets line numbers
-set relativenumber number
+set relativenumber number                                       " sets line numbers
 highlight LineNr ctermfg=grey
- " sets tabs to 4 spaces
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set colorcolumn=80                                              " color columns beyond 80 characters
+highlight ColorColumn ctermbg=red guibg=red
+set list                                                        " show trailing whitespace
+set listchars=tab:▸\ ,eol:¬,nbsp:·,trail:·                      " remove trailing space
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab     " sets tabs to 4 spaces
  " sets parenthetical highlighting to just bold
 hi MatchParen cterm=bold ctermbg=Black ctermfg=none
  " sets noexpandtab for Makefiles
@@ -39,8 +44,4 @@ if &ft == 'make'
     setlocal noexpandtab
         setlocal tabstop=4
         endif
-
-" color columns beyond 80 characters
-set colorcolumn=80
-highlight ColorColumn ctermbg=red guibg=red
-        
+"}}}
