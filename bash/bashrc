@@ -20,13 +20,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias vim="nvim"
 #------------------------Functions----------------------- #
-
-# Checking if tree is installed #
-if ! [ -x "$(command -v tree)" ]; then
-      echo 'Tree not installed.' >&2
-        sudo apt-get install tree
-fi
-
 # Creating task #
   # $1 is project path
   # $2 is task name
@@ -42,14 +35,14 @@ function task () {
      tree -C
      fi
  }
-
- #------------------------Path------------------------------#
+#This code creates environmental variable WSL to test in vimrc file
+#because I'm using the same init.vim for WSL and Native Ubuntu
+if grep -q Microsoft /proc/version; then
+    export WSL="TRUE"
+        else
+    export WSL="FALSE"
+fi
+#------------------------Path------------------------------#
  export PATH="~/resource-utils/bin:$PATH"
 
-#This code is for detect which version of Ubuntu the script is running on:
-if grep -q Microsoft /proc/version; then
-      echo "Ubuntu on Windows"
-  else
-        echo "native Linux"
-fi
-# Done
+#Done
