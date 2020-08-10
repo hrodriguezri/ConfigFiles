@@ -44,5 +44,12 @@ function task () {
  }
 
  #------------------------Path------------------------------#
- export PATH="~/Documents/CEV/resource-utils/bin:$PATH"
- # Done
+ export PATH="~/resource-utils/bin:$PATH"
+
+#This code is for detect which version of Ubuntu the script is running on:
+if grep -q Microsoft /proc/version; then
+      echo "Ubuntu on Windows"
+  else
+        echo "native Linux"
+fi
+# Done
