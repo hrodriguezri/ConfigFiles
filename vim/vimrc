@@ -2,7 +2,7 @@
 " Maintainers: Harbey Rodríguez Rincón
 " Date: Jun 19, 2020
 " License:
-" ------ 
+" ------
 "
 " Vi Improved
 set nocompatible
@@ -23,6 +23,7 @@ Plug 'itchyny/lightline.vim'                                    " Color mode
 Plug 'ap/vim-buftabline'                                        " Buffers as tabs
 Plug 'luochen1990/rainbow'                                      " Show different levels of parenthesis in different colors
 Plug 'lifepillar/vim-solarized8'                                " Optimized Solarized colorschemes
+Plug 'ntpeters/vim-better-whitespace'                           " To remove trailing whitespace on save, use ':StripWhitesapece to eliminate whitespaces
 call plug#end()
 
 "layout{{{
@@ -50,7 +51,7 @@ if &ft == 'make'
 "WSL yank support: this snippet code serves to copy with 'y' to a Windows
 "Clipboard
 if $WSL == 'TRUE'
-    "set your clipboard provider for WSL here 
+    "set your clipboard provider for WSL here
     let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
     if executable(s:clip)
         augroup WSLYank
@@ -59,4 +60,8 @@ if $WSL == 'TRUE'
         augroup END
     endif
 endif
+
+"Enable by default stripping of extra whitespace on file save for a buffer
+let g:strip_whitespace_on_save = 1                              "see plug ntpeters/vim-better-whitespace
+
 "done
