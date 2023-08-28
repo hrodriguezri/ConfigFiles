@@ -9,6 +9,11 @@
 PS1="\n\[\e[38;5;125m\]\u\[\e[0;33m\] at \[\e[38;5;63m\]\h\[\e[0;33m\]:\[\e[38;5;80m\]\w\[\e[0;37m\]\n \[\e[0;33m\]$ \[\e[0;00m\]"
 
 #------------------------Aliases------------------------- #
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .4="cd ../../../../"
+alias .5="cd ../../../../../"
 alias gs="git status"
 alias gc="git commit -m"
 alias gA="git add -A && git status"
@@ -19,7 +24,17 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias vim="nvim"
-#------------------------Functions----------------------- #
+jep="cd /mnt/c/Users/epovedaa/OneDrive\ -\ JEP\ Colombia/Documentos"
+alias reload="source ~/.bashrc"
+alias gpom="git push origin master"
+alias gpgp="git pull; git push"
+
+#------------------------Functions-----------------------
+# makes 'cs' cd and ll
+function cs () {
+        cd "$1" && ll
+            }
+
 # Creating task #
   # $1 is project path
   # $2 is task name
@@ -45,4 +60,5 @@ fi
 #------------------------Path------------------------------#
  export PATH="~/resource-utils/bin:$PATH"
  export LC_ALL='en_US.UTF-8'
+ export EDITOR='vim'
 #Done
